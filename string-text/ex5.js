@@ -1,7 +1,10 @@
 function staggeredCase(str) {
+  let charIdx = -1;
   return str.split('')
-            .map((char, idx) => {
-              if (idx % 2 === 0) return char.toUpperCase();
+            .map((char) => {
+              if (!/[a-z]/i.test(char)) return char
+              charIdx++;
+              if (charIdx % 2 === 0) return char.toUpperCase();
               else return char.toLowerCase();
             })
             .join('');
